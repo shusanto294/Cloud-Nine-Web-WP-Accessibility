@@ -4,7 +4,7 @@ Plugin Name: Cloud Nine Web Accessibility
 Version: 1.0.0
 Author: Cloud Nine Web (Shusanto)
 Author URI: https://cloudnineweb.co/
-Description: This plugin adds accessibility widget for people with disabiliuties
+Description: This plugin adds accessibility widget for people with disabilities
 */
 
 // Make sure we don't expose any info if called directly
