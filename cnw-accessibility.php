@@ -17,10 +17,12 @@ if ( !function_exists( 'add_action' ) ) {
 // Function to enqueue the scripts
 function cnw_accessibility_enqueue_scripts() {
 
+	wp_enqueue_script('jquery');
+	
     // Enqueue the 'sienna' script
     wp_enqueue_script(
         'sienna', // Handle for the script
-        plugin_dir_url(__FILE__) . 'js/sienna.min.js', // Path to the script file
+        plugin_dir_url(__FILE__) . 'js/sienna.min-1.1.0.js', // Path to the script file
         array(), // No dependencies
         '1.0', // Version number
         true // Load in footer
@@ -37,8 +39,9 @@ function start_output_buffer() {
 }
 add_action('wp_head', 'start_output_buffer');
 
+
 function replace_brx_submenu_toggle($content) {
-    return str_replace('<div class="brx-submenu-toggle">', '<div class="brx-submenu-toggle" aria-haspopup="true" aria-expanded="false">', $content);
+    return str_replace('<div class="brx-submenu-toggle">', '<div class="brx-submenu-toggle" aria-haspopup="true">', $content);
 }
 
 
@@ -47,25 +50,17 @@ function end_output_buffer() {
 }
 add_action('wp_footer', 'end_output_buffer');
 
+
 //Menu dropdown hover
 function add_hover_script() {
     ?>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var elements = document.querySelectorAll('.brx-submenu-toggle');
-            
-            elements.forEach(function(element) {
-                element.setAttribute('aria-expanded', 'false');
-                
-                element.addEventListener('mouseover', function() {
-                    element.setAttribute('aria-expanded', 'true');
-                });
-                
-                element.addEventListener('mouseout', function() {
-                    element.setAttribute('aria-expanded', 'false');
-                });
-            });
-        });
+        jQuery(document).ready(function($){
+			$('.brx-submenu-toggle').each(function(){
+				$labelText = $(this).find('a').text() + 'Submenu toggle';
+				$(this).find('button').attr('aria-label', $labelText);
+			});
+		});
     </script>
     <?php
 }
