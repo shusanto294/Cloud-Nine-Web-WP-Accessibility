@@ -22,7 +22,7 @@ function cnw_accessibility_enqueue_scripts() {
     // Enqueue the 'sienna' script
     wp_enqueue_script(
         'sienna', // Handle for the script
-        plugin_dir_url(__FILE__) . 'js/sienna.min-1.1.0.js', // Path to the script file
+        plugin_dir_url(__FILE__) . 'js/sienna.min.js', // Path to the script file
         array(), // No dependencies
         '1.0', // Version number
         true // Load in footer
