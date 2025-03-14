@@ -24,7 +24,7 @@ function cnw_accessibility_enqueue_scripts() {
         'sienna', // Handle for the script
         plugin_dir_url(__FILE__) . 'js/sienna.min.js', // Path to the script file
         array(), // No dependencies
-        '1.0', // Version number
+        '1.1', // Version number
         true // Load in footer
     );
 }
