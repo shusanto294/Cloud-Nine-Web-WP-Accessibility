@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -o '#[0-9a-fA-F]\\\\{3,6\\\\}\\\\|rgb[a]*\\([^\\)]*\\)\\\\|background:\\\\|color:' /c/xampp/htdocs/wp/wp-content/plugins/Cloud-Nine-Web-WP-Accessibility/js/sienna.min.js)"
+    ]
+  }
+}
